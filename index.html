@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora 🤖</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="calculadora.js" defer></script>
+    </head>
+    <body>
+        <div id="calculadora">
+            <div id="pantalla">
+                <div id="operandos">
+                    <div id="primerNum"></div>
+                    <div id="operacion"></div>
+                    <div id="segundoNum"></div>
+                </div>
+                <div id="resultado"></div>
+            </div>
+            <div id="botones">
+                <button class="boton" id="1" onclick="clickNumero(1)">1</button>
+                <button class="boton" id="2" onclick="clickNumero(2)">2</button>
+                <button class="boton" id="3" onclick="clickNumero(3)">3</button>
+                <button class="boton" id="4" onclick="clickNumero(4)">4</button>
+                <button class="boton" id="5" onclick="clickNumero(5)">5</button>
+                <button class="boton" id="6" onclick="clickNumero(6)">6</button>
+                <button class="boton" id="7" onclick="clickNumero(7)">7</button>
+                <button class="boton" id="8" onclick="clickNumero(8)">8</button>
+                <button class="boton" id="9" onclick="clickNumero(9)">9</button>
+                <button class="boton" id="0" onclick="clickNumero(0)">0</button>
+                <button class="boton" id="igual" onclick="operar()">=</button>
+                <button class="boton" id="mas" onclick="obtenerOperacion('+')">+</button>
+                <button class="boton" id="menos" onclick="obtenerOperacion('-')">-</button>
+                <button class="boton" id="por" onclick="obtenerOperacion('x')">x</button>
+                <button class="boton" id="dividido" onclick="obtenerOperacion('/')">/</button>
+                <button class="boton" id="borrar">C</button>
+            </div>
+        </div>
+    </body>
+</html>

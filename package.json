@@ -1,0 +1,17 @@
+{
+  "name": "jest-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.0.0",
+    "jest-environment-jsdom": "^28.0.1"
+  }
+}
