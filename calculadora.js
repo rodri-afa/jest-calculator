@@ -18,27 +18,26 @@ function multiplicacion(n1, n2) {
 function division(n1, n2) {
     return n1 / n2;
 }
-function clickNumero(n) {
+function clickNumero(newNumber) {
     if (this.resultado != null) {
         borrarPantalla();
     }
 
     if (this.op === null) {
-        this.num1 = añadirCifra(n, this.num1);
-        // pintarPantalla("primerNum", this.num1);
+        this.num1 = añadirCifra(this.num1, newNumber);
+        pintarPantalla("primerNum", this.num1);
     } else {
-        this.num2 = añadirCifra(n, this.num2);
-        // pintarPantalla("segundoNum", this.num2);
+        this.num2 = añadirCifra(this.num2, newNumber);
+        pintarPantalla("segundoNum", this.num2);
     }
 }
 
-function añadirCifra(cifra, num) {
+function añadirCifra(num, cifra) {
     return num * 10 + cifra;
 }
 
 function obtenerOperacion(o) {
     this.op = o;
-    console.log({ op });
     pintarPantalla("operacion", o);
 }
 
@@ -93,7 +92,7 @@ const calculadora = {
     obtenerOperacion,
     operar,
     añadirCifra,
-    pintarPantalla,
+    // pintarPantalla,
     borrarPantalla,
 };
 module.exports = calculadora;

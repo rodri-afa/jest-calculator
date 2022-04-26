@@ -1,7 +1,26 @@
-// /**
-//  * @jest-environment jsdom
-//  */
+/**
+ * @jest-environment jsdom
+ */
 const calculadora = require("./calculadora");
+
+calculadora.clickNumero = jest.fn((newNumber) => {
+    if (calculadora.op === null) {
+        calculadora.num1 = calculadora.añadirCifra(calculadora.num1, newNumber);
+    } else {
+        calculadora.num2 = calculadora.añadirCifra(calculadora.num2, newNumber);
+    }
+});
+
+calculadora.obtenerOperacion = jest.fn((o) => {
+    calculadora.op = o;
+});
+
+beforeEach(() => {
+    calculadora.num1 = null;
+    calculadora.num2 = null;
+    calculadora.op = null;
+    calculadora.resultado = null;
+});
 
 describe("Comprobaciones iniciales", () => {
     test("everything ok", () => {
@@ -26,26 +45,8 @@ describe("Operaciones", () => {
     });
 });
 describe("Obtener primer número", () => {
-    beforeEach(() => {
-        calculadora.num1 = null;
-        calculadora.num2 = null;
-        calculadora.op = null;
-        calculadora.resultado = null;
-        // const element = document.createElement("div");
-        // element.setAttribute("id", "primerNum");
-        // calculadora.pintarPantalla("primerNum", 0);
-    });
-    // test("use jsdom in this test file", () => {
-    //     const element = document.createElement("primerNum");
-    //     expect(element).not.toBeNull();
-    // });
-    // jest.spyOn(calculadora, "pintarPantalla").mockImplementation(() => {
-
-    // });
-
     test("el primer número se obtiene antes de pulsar la operacion", () => {
         calculadora.clickNumero(5);
-        // expect(calculadora.pintarPantalla).toHaveBeenCalledWith("primerNum", "5");
         expect(calculadora.num1).toBe(5);
     });
     test("el primer número puede tener múltiples dígitos", () => {
@@ -56,7 +57,21 @@ describe("Obtener primer número", () => {
     test.todo("el primer número puede tener decimales");
 });
 describe("Obtener segundo número", () => {
-    test.todo("el segundo número se obtiene después de pulsar la operacion");
-    test.todo("el segundo número puede tener múltiples dígitos");
+    test("el segundo número se obtiene después de pulsar la operacion", () => {
+        calculadora.clickNumero(5);
+        calculadora.clickNumero(1);
+        calculadora.obtenerOperacion("+");
+        calculadora.clickNumero(2);
+        expect(calculadora.num2).toBe(2);
+    });
+    test("el segundo número puede tener múltiples dígitos", () => {
+        calculadora.clickNumero(5);
+        calculadora.clickNumero(1);
+        calculadora.obtenerOperacion("+");
+        calculadora.clickNumero(2);
+        calculadora.clickNumero(3);
+        expect(calculadora.num1).toBe(51);
+        expect(calculadora.num2).toBe(23);
+    });
     test.todo("el segundo número puede tener decimales");
 });
