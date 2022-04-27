@@ -11,12 +11,12 @@
     <body>
         <div id="calculadora">
             <div id="pantalla">
-                <div id="operandos">
+                <div class="fila-pantalla" id="operandos">
                     <div id="primerNum"></div>
                     <div id="operacion"></div>
                     <div id="segundoNum"></div>
                 </div>
-                <div id="resultado"></div>
+                <div class="fila-pantalla" id="resultado"></div>
             </div>
             <div id="botones">
                 <button class="boton" id="1" onclick="clickNumero(1)">1</button>
@@ -29,12 +29,13 @@
                 <button class="boton" id="8" onclick="clickNumero(8)">8</button>
                 <button class="boton" id="9" onclick="clickNumero(9)">9</button>
                 <button class="boton" id="0" onclick="clickNumero(0)">0</button>
-                <button class="boton" id="igual" onclick="operar()">=</button>
+                <br />
                 <button class="boton" id="mas" onclick="obtenerOperacion('+')">+</button>
                 <button class="boton" id="menos" onclick="obtenerOperacion('-')">-</button>
                 <button class="boton" id="por" onclick="obtenerOperacion('x')">x</button>
                 <button class="boton" id="dividido" onclick="obtenerOperacion('/')">/</button>
                 <button class="boton" id="borrar">C</button>
+                <button class="boton" id="igual" onclick="operar()">=</button>
             </div>
         </div>
     </body>

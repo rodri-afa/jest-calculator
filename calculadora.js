@@ -92,7 +92,5 @@ const calculadora = {
     obtenerOperacion,
     operar,
     añadirCifra,
-    // pintarPantalla,
-    borrarPantalla,
 };
 module.exports = calculadora;
