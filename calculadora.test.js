@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+
 const calculadora = require("./calculadora");
 
 calculadora.clickNumero = jest.fn((newNumber) => {
@@ -27,12 +28,15 @@ describe("Comprobaciones iniciales", () => {
         expect(true).toBe(true);
     });
     test("calculadora importada ok", () => {
-        expect(calculadora.test()).toBe("ok");
+        expect(calculadora.prueba()).toBe("ok");
     });
 });
+
 describe("Operaciones", () => {
     test("suma", () => {
         expect(calculadora.suma(1, 2)).toBe(3);
+        expect(calculadora.suma(1, -2)).toBe(-1);
+        expect(calculadora.suma(1.5, 2)).toBe(3.5);
     });
     test("resta", () => {
         expect(calculadora.resta(1, 2)).toBe(-1);
@@ -43,6 +47,7 @@ describe("Operaciones", () => {
     test("division", () => {
         expect(calculadora.division(1, 2)).toBe(0.5);
     });
+    test.todo("division entre 0");
 });
 describe("Obtener primer número", () => {
     test("el primer número se obtiene antes de pulsar la operacion", () => {

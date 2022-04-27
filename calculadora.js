@@ -3,7 +3,7 @@ num2 = null;
 op = null;
 resultado = null;
 
-function test() {
+function prueba() {
     return "ok";
 }
 function suma(n1, n2) {
@@ -79,11 +79,11 @@ function borrarPantalla() {
 }
 
 const calculadora = {
-    num1,
-    num2,
-    op,
-    resultado,
-    test,
+    num1: null,
+    num2: null,
+    op: null,
+    resultado: null,
+    prueba,
     suma,
     resta,
     multiplicacion,
@@ -93,4 +93,5 @@ const calculadora = {
     operar,
     añadirCifra,
 };
+
 module.exports = calculadora;
